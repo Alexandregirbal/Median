@@ -1,0 +1,33 @@
+h1{
+  margin-top: 10px;
+  font-size: 22px;
+  text-align: center;
+}
+input{
+  height: 34px;
+  width:43px;
+  text-align: center;
+  border: solid #dddddd;
+}
+.note-perso{
+  margin: 10px;
+}
+#valider{
+  margin: auto;
+}
+
+
+@media only screen and (min-width: 600px) {
+  h1{
+    margin: 17px;
+    margin-bottom: 25px;
+    font-size: 25px;
+  }
+}
+@media only screen and (min-width: 769px) {
+  h1{
+    margin: 20px;
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+}

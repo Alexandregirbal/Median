@@ -1,0 +1,46 @@
+<h1>Formulaire d'ajout des notes</h1>
+<!--Les inputs pour les paramètres des notes-->
+<div classe="note-perso">
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <select class="custom-select" id="section">
+        <option selected>Semestre</option>
+        <option value="1">Semestre 1</option>
+        <option value="2">Semestre 2</option>
+      </select>
+    </div>
+  </div>
+  <!--à mettre en ordre alphabetique-->
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <select class="custom-select" id="section">
+        <option selected>Matière</option>
+        <option value="1">Analyse de coûts</option>
+        <option value="2">Gestion de la chaine logistique</option>
+        <option value="3">SIRH</option>
+        <option value="4">Théorie des organisations</option>
+        <option value="1">Analyse de coûts</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="note" class="col-2 col-form-label">Note: </label>
+    <div class="col-4">
+      <input type="text" maxlength="3" name="note">/<input type="text" maxlength="3" name="note" value='20'>
+    </div>
+    <!--Coefficient-->
+    <label for="note" class="col-3 col-form-label">Coefficient: </label>
+    <div>
+      <div class="col-3">
+        <input type="text" maxlength="3" name="note">
+      </div>
+    </div>
+  </div>
+</div>
+<!--Le bouton de validation-->
+<div class="row">
+  <div id="valider">
+    <button type="submit" class="btn btn-primary">VALIDER</button>
+  </div>
+</div>

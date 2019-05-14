@@ -1,0 +1,26 @@
+<!-- MENU -->
+    <div class="navbar-perso">
+        <div class="dropdown-perso">
+            <button class="dropbtn" >+</button>
+            <div class="dropdown-perso-content">
+              <!--ici on a un bug en cas de déconnexion, temps que le header n'est pas raffraichi on garde les anciens credentials en local-->
+                <li>{{details?.NameUser}}</li> <!--on met l'operateur '?' dit Elvis operator pour éviter une erreur due au temps de recup après l'envoie de la requete http-->
+                <li>{{details?.SurnameUser}}</li>
+                <li>{{details?.Section}}</li>
+                <a routerLink="/user/change">Modifier</a><br>
+                <button type="button" (click)="logout()">Déconnexion</button>
+            </div>
+        </div>
+        <a routerLink="accueil">Accueil</a>
+        <div class="dropdown-perso">
+            <button class="dropbtn">Notes</button>
+            <div class="dropdown-perso-content ">
+              <a id="colornote" routerLink="/notes">Consulter mes notes</a><br>
+              <a id="colornote" routerLink="/addmark">Ajouter une note</a>
+            </div>
+        </div>
+        <a routerLink="/coefficients">Coefficients</a>
+        <a routerLink="/administrateur">Admin</a>
+        <a routerLink="/profile">P</a>
+
+    </div>

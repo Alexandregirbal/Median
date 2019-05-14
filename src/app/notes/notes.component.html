@@ -1,0 +1,41 @@
+<h1>SEMESTRE 1</h1>
+<div class="matiere" *ngFor="let mat of Semestre1">
+  <div>
+    <h2>{{mat.Name}}</h2>
+  </div>
+  <table>
+    <tr>
+      <th>NOTE</th>
+      <td *ngFor="let note of mat.Notes">{{note.note}}</td>
+    </tr>
+    <tr>
+      <th>COEF</th>
+      <td *ngFor="let note of mat.Notes">{{note.coef}}</td>
+    </tr>
+    <tr>
+        <th>MOYENNE</th>
+        <td>{{mat.Moyenne}}</td>
+      </tr>
+  </table>
+</div>
+
+<h1>SEMESTRE 2</h1>
+<div class="matiere" *ngFor="let mat of Semestre2">
+  <div>
+    <h2>{{mat.Name}}</h2>
+  </div>
+  <table>
+    <tr>
+      <th>NOTE</th>
+      <td *ngFor="let note of mat.Notes">{{note.note}}</td>
+    </tr>
+    <tr>
+      <th>COEF</th>
+      <td *ngFor="let note of mat.Notes">{{note.coef}}</td>
+    </tr>
+    <tr>
+        <th>MOYENNE</th>
+        <td>{{mat.Moyenne}}</td>
+      </tr>
+  </table>
+</div>

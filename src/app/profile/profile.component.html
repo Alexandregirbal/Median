@@ -1,0 +1,8 @@
+
+<div>
+  <p> On affiche les notes</p>
+</div>
+
+<div *ngFor='let mark of marks; let i=index'>
+  <p>{{mark?.MarkM + '/' + mark?.ScaleM}} dans la matière {{mark?.IdSubject}}</p>
+</div>
