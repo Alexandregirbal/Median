@@ -1,0 +1,78 @@
+
+---------------- TABLES -----------------
+
+
+
+section(  Section || SchoolSubject _ Year  ) 	//prédéfinis
+	ue(  IdUE - Section || NameUE _ SemesterUE  )
+		subject(  IdSubject - IdUE || NameSubject _ CoefSubject  )
+			marks(	IdMark - IdSubject - EmailUser || MarkM _ ScaleM _ CoefM )
+users(	EmailUser - Section || NameUser _ SurnameUser _ Admin _ Password _ Created ) 	//gérés dans l'authentication (pas de delete sur un user)
+
+
+
+
+---------------- REQUETES -----------------
+
+¤ MARKS:
+
+	GET | les notes d'un USER
+
+		SELECT DISTINCT us.EmailUser, IdMark, MarkM, ScaleM, CoefM, ma.IdSubject, ue.SemesterUE, ue.IdUE 
+		FROM marks ma, ues ue, users us, subjects su
+		WHERE ma.EmailUser=us.EmailUser AND su.IdSubject=ma.IdSubject AND ue.IdUE=su.IdUE
+		AND us.EmailUser='---USER---'
+		ORDER BY su.IdSubject 
+
+	POST | une nouvelle mark avec les paramètres compréhesibles suivants
+		INSERT INTO `marks` (`IdMark`, `MarkM`, `ScaleM`, `CoefM`, `IdSubject`, `EmailUser`) 
+		VALUES (NULL, '16', '20', '3', '1', 'hugo.brando@etu.umontpellier.fr');
+	
+	DELETE | /!\ si vide /!\
+		DELETE FROM `marks` 
+		WHERE `marks`.`IdMark` = ---VAR---
+
+	PUT | une note identifiée par IDMARK en changeant differents parametres VAR au choix avec les diffrents éléments
+
+		UPDATE `marks` SET `MarkM` = '---VAR---' WHERE `marks`.`IdMark` = ---IDMARK---
+ 
+¤ SUBJECTS
+
+	POST | un new SUBJECT avec un certain COEF dépendant d'un UE
+
+		INSERT INTO `subjects` (`IdSubject`, `NameSubject`, `CoefSubject`, `IdUE`) 
+		VALUES (NULL, '---SUBJECT---', '---COEF---', '---UE---');
+		
+
+	PUT | le coef d'un SUBJECT avec la valeur COEF
+
+		UPDATE `subjects` SET `CoefSubject` = '---COEF---'
+		WHERE `subjects`.`IdSubject` = ---SUBJECT---;
+	
+
+	DELETE | un subject vide
+
+		 DELETE FROM `subjects` WHERE `subjects`.`IdSubject` = ---VAR---
+
+¤ UES
+
+	POST | un UE 
+
+		INSERT INTO `ues` (`IdUE`, `NameUE`, `Section`, `SemesterUE`) 
+		VALUES (NULL, 'Fondamentaux de l\'informatique 2', 'IG3', '2');
+ 
+	PUT | un UE d'id IDUE avec les paramètres au choix parmi les éléments
+
+		UPDATE `ues` 
+		SET `NameUE` = 'Fondamentaux de l\'informatique 2', `SemesterUE` = '1' 
+		WHERE `ues`.`IdUE` = ---IDUE---;
+
+	DELETE | /!\ vide /!\
+		
+		DELETE FROM `ues` WHERE `ues`.`IdUE` = ---IDUE---
+
+
+	
+
+
+
