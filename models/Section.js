@@ -1,5 +1,5 @@
-const Sequelize = require("sequelize")
-const db = require("../database/db.js")
+const Sequelize = require("sequelize");
+const db = require("../database/db.js");
 
 module.exports = db.sequelize.define('section',{
     Section: {
@@ -13,4 +13,4 @@ module.exports = db.sequelize.define('section',{
         type: Sequelize.INTEGER
     }
 },
-{timestamps: false})
+{timestamps: false});
