@@ -1,32 +1,32 @@
-const express = require("express")
-const subjects = express.Router()
-const cors = require("cors")
+const express = require("express");
+const subjects = express.Router();
+const cors = require("cors");
 
 
-const User = require("../models/User")
-const Section = require("../models/Section")
-const UE = require("../models/UE")
-const Mark = require("../models/Mark")
-const Subject = require("../models/Subject")
+const User = require("../models/User");
+const Section = require("../models/Section");
+const UE = require("../models/UE");
+const Mark = require("../models/Mark");
+const Subject = require("../models/Subject");
 
-subjects.use(cors())
+subjects.use(cors());
 
-process.env.SECRET_KEY = 'secret'
+process.env.SECRET_KEY = 'secret';
 
 // GET subjects available for an user
 
-Section.hasMany(UE, {foreignKey: 'Section'})
-UE.belongsTo(Section, {foreignKey: 'Section'})
+Section.hasMany(UE, {foreignKey: 'Section'});
+UE.belongsTo(Section, {foreignKey: 'Section'});
 
-UE.hasMany(Subject, {foreignKey: 'IdUE'})
-Subject.belongsTo(UE, {foreignKey: 'IdUE'})
+UE.hasMany(Subject, {foreignKey: 'IdUE'});
+Subject.belongsTo(UE, {foreignKey: 'IdUE'});
 
 /*Subject.hasMany(Mark, {foreignKey: 'IdSubject'})
 Mark.belongsTo(Subject, {foreignKey: 'IdSubject'})*/
 
 subjects.get('/getsubjects/:id', (req, res) => {
-    section = req.params.id
-    console.log('On cherche les matieres en ' + section)
+    section = req.params.id;
+    console.log('On cherche les matieres en ' + section);
     Subject.findAll({
         include: [{
             model: UE,
@@ -38,7 +38,7 @@ subjects.get('/getsubjects/:id', (req, res) => {
             //console.log('Subjects of the user found')
             res.json(subs)
         } else {
-            console.log('Error in getsubjects')
+            console.log('Error in getsubjects');
             res.send('The data base has a problem')
         }
 
@@ -46,6 +46,6 @@ subjects.get('/getsubjects/:id', (req, res) => {
     .catch(err =>{
         res.send('subjects error : ' + err)
     })
-})
+});
 
-module.exports = subjects
+module.exports = subjects;

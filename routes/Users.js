@@ -1,18 +1,18 @@
-const express = require("express")
-const users = express.Router()
-const cors = require("cors")
-const jwt = require("jsonwebtoken")
-const bcrypt = require("bcrypt")
+const express = require("express");
+const users = express.Router();
+const cors = require("cors");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
-const User = require("../models/User")
+const User = require("../models/User");
 
-users.use(cors())
+users.use(cors());
 
-process.env.SECRET_KEY = 'secret'
+process.env.SECRET_KEY = 'secret';
 
 // REGISTER
 users.post('/register', (req, res) => {
-    const today = new Date()
+    const today = new Date();
     const userData = {
         Admin : req.body.Admin,
         EmailUser : req.body.EmailUser, 
@@ -21,7 +21,7 @@ users.post('/register', (req, res) => {
         Section : req.body.Section,
         SurnameUser : req.body.SurnameUser,
         created: today        
-    }
+    };
 
     User.findOne({
         where: { 
@@ -29,17 +29,17 @@ users.post('/register', (req, res) => {
         }
     }).then(user => {
         if (!user) {
-            var pwd = userData.Password
+            var pwd = userData.Password;
             var salt = bcrypt.genSaltSync(10);
-            console.log(' \n----- Email: ' + userData.EmailUser + ' | Password: ' + userData.Password + ' | Surname: '  + userData.SurnameUser + ' | Name: ' + userData.NameUser + ' | Section: ' + userData.Section + ' | Date: ' + today + '------\n')
+            console.log(' \n----- Email: ' + userData.EmailUser + ' | Password: ' + userData.Password + ' | Surname: '  + userData.SurnameUser + ' | Name: ' + userData.NameUser + ' | Section: ' + userData.Section + ' | Date: ' + today + '------\n');
             const hash = bcrypt.hashSync(userData.Password, salt);
             //const hash = bcrypt.hashSync(pwd, 10)
-            userData.Password = hash
+            userData.Password = hash;
             User.create(userData) // .create() crée les données en question ( voir doc sequelize )
                 .then(user => {
                     let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
                         expiresIn: 12000
-                    })
+                    });
                     res.json({ token: token})
                 })
                 .catch(err => {
@@ -54,7 +54,7 @@ users.post('/register', (req, res) => {
         res.send('[ERROR registration] ' + err)
     })
 
-})
+});
 
 // LOGIN
 users.post('/login', (req, res) => {
@@ -67,7 +67,7 @@ users.post('/login', (req, res) => {
         if (bcrypt.compareSync(req.body.Password, user.Password)) {
             let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
                 expiresIn: 12000
-            })
+            });
             res.json({ token: token })
         } else {
             res.json("L'utilisateur n'existe pas ou le mot de passe est faux")
@@ -76,7 +76,7 @@ users.post('/login', (req, res) => {
     .catch(err => {
         res.send('error: ' + err)
     })
-})
+});
 
 //PROFILE
 users.get('/profile', (req, res) => {
@@ -97,7 +97,7 @@ users.get('/profile', (req, res) => {
     .catch(err => {
         res.send('error: ' + err)   
     })
-})
+});
 
 
-module.exports = users
+module.exports = users;
