@@ -18,10 +18,8 @@ app.use("/api", Users);
 app.use("/api", Marks);
 app.use("/api", Subjects);
 
-app.use(express.static(__dirname, 'dist/median'));
-app.get('/*', (request, response) => {
-	response.sendFile(path.join(__dirname));
-});
+app.use(express.static(__dirname + '/dist/median'));
+app.get('/*', (request, response) => response.sendFile(path.join(__dirname + 'dist/median/index.html')));
 
 
 app.listen(port, function(){
