@@ -19,7 +19,7 @@ app.use("/api", Marks);
 app.use("/api", Subjects);
 
 app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'dist/median', 'index.html'));
+	response.sendFile(path.join(__dirname, 'dist/median'));
 });
 
 
