@@ -4,7 +4,7 @@ const cors = require("cors")
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
 
-const Mark = require("../models/mark")
+const Mark = require("../models/Mark")
 
 marks.use(cors())
 
@@ -24,10 +24,10 @@ marks.get('/allmarks/:id', (req, res) => {
     })
     .catch(err =>{
         res.send('error marks: ' + err)
-    })         
+    })
 })
 
-//POST a new mark,scale,coef,idsubject with emailuser, and 
+//POST a new mark,scale,coef,idsubject with emailuser, and
 marks.post('/addmark', (req,res) => {
     const markData = {
         MarkM: req.body.MarkM,
@@ -42,7 +42,7 @@ marks.post('/addmark', (req,res) => {
     })
     .catch(err =>{
         res.send('error marks: ' + err)
-    })  
+    })
 })
 
 module.exports = marks
