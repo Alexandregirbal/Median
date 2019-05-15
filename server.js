@@ -6,8 +6,8 @@ var port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors()); /*
-app.use(express.static(__dirname + '/dist'));*/
+app.use(cors());
+app.use(express.static(__dirname + '/dist'));
 
 
 var Users = require("./routes/Users");
@@ -26,7 +26,6 @@ app.listen(port, function(){
     console.log('---------------------------------------------------------------\n');
 });
 
-/*app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'median', 'index.html'));
 });
-*/
