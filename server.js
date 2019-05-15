@@ -8,11 +8,6 @@ var path = require('path');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.use(express.static(__dirname + '/dist'));
-app.get('/*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'dist/median', 'index.html'));
-});
-
 
 var Users = require("./routes/Users");
 var Marks = require("./routes/Marks");
@@ -22,6 +17,10 @@ var Subjects = require("./routes/Subjects");
 app.use("/api", Users);
 app.use("/api", Marks);
 app.use("/api", Subjects);
+
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'dist/median', 'index.html'));
+});
 
 
 app.listen(port, function(){
