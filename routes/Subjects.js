@@ -3,11 +3,11 @@ const subjects = express.Router()
 const cors = require("cors")
 
 
-const User = require("../models/user")
-const Section = require("../models/section")
-const UE = require("../models/ue")
-const Mark = require("../models/mark")
-const Subject = require("../models/subject")
+const User = require("../models/User")
+const Section = require("../models/Section")
+const UE = require("../models/UE")
+const Mark = require("../models/Mark")
+const Subject = require("../models/Subject")
 
 subjects.use(cors())
 
@@ -41,11 +41,11 @@ subjects.get('/getsubjects/:id', (req, res) => {
             console.log('Error in getsubjects')
             res.send('The data base has a problem')
         }
-        
+
     })
     .catch(err =>{
         res.send('subjects error : ' + err)
-    })         
+    })
 })
 
 module.exports = subjects
