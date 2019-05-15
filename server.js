@@ -9,6 +9,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(express.static(__dirname + '/dist'));
+app.get('/*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'dist/median', 'index.html'));
+});
 
 
 var Users = require("./routes/Users");
@@ -25,8 +28,4 @@ app.listen(port, function(){
     console.log('---------------------------------------------------------------');
     console.log("--------------  Server is running on port [" + port +"]  -------------");
     console.log('---------------------------------------------------------------\n');
-});
-
-app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'median', 'index.html'));
 });
