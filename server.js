@@ -1,8 +1,8 @@
-var express = require("express")
-var cors = require("cors")
-var bodyParser = require("body-parser")
-var app = express()
-var port = process.env.PORT || 3000
+var express = require("express");
+var cors = require("cors");
+var bodyParser = require("body-parser");
+var app = express();
+var port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,10 +21,10 @@ app.use("/api", Subjects);
 
 
 app.listen(port, function(){
-    console.log('---------------------------------------------------------------')
-    console.log("--------------  Server is running on port [" + port +"]  -------------")
-    console.log('---------------------------------------------------------------\n')
-})
+    console.log('---------------------------------------------------------------');
+    console.log("--------------  Server is running on port [" + port +"]  -------------");
+    console.log('---------------------------------------------------------------\n');
+});
 
 app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
