@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "engines": {
-    "npm": "6.8.0"
+    "npm": "6.8.0",
+    "node": "10.15.3"
   },
   "scripts": {
     "ng": "ng",
@@ -13,7 +14,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot --target=production"
+    "postinstall": "ng build --aot --prod"
   },
   "private": true,
   "license": "ISC",
@@ -45,7 +46,6 @@
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26",
     "typescript": "~3.2.2"
-
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
@@ -63,6 +63,6 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
-    "tslint": "~5.11.0",
+    "tslint": "~5.11.0"
   }
 }
