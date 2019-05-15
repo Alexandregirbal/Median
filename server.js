@@ -25,3 +25,7 @@ app.listen(port, function(){
     console.log("--------------  Server is running on port [" + port +"]  -------------")
     console.log('---------------------------------------------------------------\n')
 })
+
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
