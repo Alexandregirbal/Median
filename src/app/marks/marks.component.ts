@@ -39,7 +39,7 @@ export class MarksComponent implements OnInit {
       },
       err => {
         console.error(err);
-      }
+      })
   }
 
 }
