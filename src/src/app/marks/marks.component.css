@@ -1,0 +1,35 @@
+h1{
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  text-align: center;
+  background-color: #F3EFE0;
+}
+
+h2{
+  margin: auto;
+  text-align: center;
+  background-color: #0051ff75;
+}
+.matiere{
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-bottom: 12px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+th {
+  background-color: #dadada8a;
+  width: 100px;
+}
