@@ -10,6 +10,11 @@ export interface NewMark {
   EmailUser: string;
 }
 
+export interface UserData {
+  EmailUser: string;
+  Section: string
+}
+
 /*export interface Subject {
   IdSubject: number;
   NameSubject: string;
@@ -30,5 +35,10 @@ export class MarksService {
   public getSubjects(id) {
     console.log('Waiting for subjects....');
     return this.http.get('/api/getsubjects/' + id);
+  }
+
+  marksBySubject(data: UserData): Observable<any> {
+    console.log('Waiting for ordered marks...')
+    return(this.http.get('/api/orderedMarks' + data));
   }
 }

@@ -28,6 +28,7 @@ import { AnonymousComponent } from './anonymous/anonymous.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddmarkComponent } from './addmark/addmark.component';
+import { MarksComponent } from './marks/marks.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { AddmarkComponent } from './addmark/addmark.component';
     AnonymousComponent,
     LoginComponent,
     ProfileComponent,
-    AddmarkComponent
+    AddmarkComponent,
+    MarksComponent
   ],
   imports: [
     BrowserModule,
