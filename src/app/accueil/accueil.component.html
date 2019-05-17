@@ -1,22 +1,35 @@
-<div>
+1<div>
     <h1>
       Welcome to Median!
     </h1>
 </div>
 
-<!-- avec le premier ngFor on va séparer les semestres
-     avec le second on affiche les matières et leurs moyennes -->
-<div class="moyennes" *ngFor="let sem of mesNotes; let i = index">
-  <p id="semester"> Moyennes du Semestre{{i+1}}:</p>
-  <div class="matiere">
-    <div>
-      <p id="ue">UE Fondamentaux de l'infomatique: 13</p>
-    </div>
-    <div *ngFor="let mat of sem">
-      <div>
-        <li>{{mat.NomMatiere}} : {{mat.Moyenne}}</li>
+<div class="home">
+  <p class="semester">Moyennes du semsetre 1:</p>
+  <div class="subject" *ngFor="let ue of orderedMarks1; let i = index">
+    <p class="ue"> {{ue.NameUE}}:</p>
+    <p class="avgUE">{{avg1[i]}}</p>
+    <div class="marks">
+      <div *ngFor="let sub of ue.Subjects; let j = index">
+        <div>
+          <li>{{sub.NameSubject}} : {{averagesS1[i][j]}}</li>
+        </div>
       </div>
     </div>
-    <p id="tostyle"></p>
+  </div>
+</div>
+
+<div class="home">
+  <p class="semester">Moyennes du semsetre 2:</p>
+  <div class="subject" *ngFor="let ue of orderedMarks2; let i = index">
+    <p class="ue"> {{ue.NameUE}}:</p>
+    <p class="avgUE">{{avg2[i]}}</p>
+    <div class="marks">
+      <div *ngFor="let sub of ue.Subjects; let j = index">
+        <div>
+          <li>{{sub.NameSubject}} : {{averagesS2[i][j]}}</li>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

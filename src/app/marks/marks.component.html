@@ -1,47 +1,51 @@
 <h1>SEMESTRE 1</h1>
 <div class="ue" *ngFor=" let UE of orderedMarks1; let i=index"> <!--This one is well done-->
-  <div class="subject" *ngFor="let subject of UE.Subjects; let j=index">
-    <div>
-      <h2>{{subject?.NameSubject}}</h2>
-    </div>
-    <table>
-      <tr>
-        <th>NOTE</th>
-        <td *ngFor="let mark of subject.Marks">{{mark?.MarkM}}/{{mark?.ScaleM}}</td>
-      </tr>
-      <tr>
-        <th>COEF</th>
-        <td *ngFor="let mark of subject.Marks">{{mark?.CoefM}}</td>
-      </tr>
-      <!---->
-      <tr>
-          <th>MOYENNE</th>
-          <td>{{averagesS1[i][j]}}</td>
+  <div *ngIf="UE.Subjects">
+    <div class="subject" *ngFor="let subject of UE.Subjects; let j=index">
+      <div>
+        <h2>{{subject?.NameSubject}}</h2>
+      </div>
+      <table>
+        <tr>
+          <th>NOTE</th>
+          <td *ngFor="let mark of subject.Marks">{{mark?.MarkM}}/{{mark?.ScaleM}}</td>
         </tr>
-    </table>
+        <tr>
+          <th>COEF</th>
+          <td *ngFor="let mark of subject.Marks">{{mark?.CoefM}}</td>
+        </tr>
+        <!---->
+        <tr>
+            <th>MOYENNE</th>
+            <td>{{averagesS1[i][j]}}</td>
+          </tr>
+      </table>
+    </div>
   </div>
 </div>
 
 <h1>SEMESTRE 2</h1>
-<div class="ue" *ngFor=" let UE of orderedMarks2; let i=index">
-  <div class="subject" *ngFor="let subject of UE.Subjects; let j=index">
-    <div>
-      <h2>{{subject?.NameSubject}}</h2>
-    </div>
-    <table>
-      <tr>
-        <th>NOTE</th>
-        <td *ngFor="let mark of subject.Marks">{{mark?.MarkM}}/{{mark?.ScaleM}}</td>
-      </tr>
-      <tr>
-        <th>COEF</th>
-        <td *ngFor="let mark of subject.Marks">{{mark?.CoefM}}</td>
-      </tr>
-      <!---->
-      <tr>
-          <th>MOYENNE</th>
-          <td>{{averagesS2[i][j]}}</td>
+<div class="ue" *ngFor=" let UE2 of orderedMarks2; let k=index"> <!--This one is well done-->
+  <div *ngIf="UE2.Subjects">
+    <div class="subject" *ngFor="let subject2 of UE2.Subjects; let l=index">
+      <div>
+        <h2>{{subject2.NameSubject}}</h2>
+      </div>
+      <table>
+        <tr>
+          <th>NOTE</th>
+          <td *ngFor="let mark2 of subject2.Marks">{{mark2?.MarkM}}/{{mark2?.ScaleM}}</td>
         </tr>
-    </table>
+        <tr>
+          <th>COEF</th>
+          <td *ngFor="let mark2 of subject2.Marks">{{mark2?.CoefM}}</td>
+        </tr>
+        <!---->
+        <tr>
+            <th>MOYENNE</th>
+            <td>{{averagesS2[k][l]}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

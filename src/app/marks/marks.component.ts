@@ -15,8 +15,11 @@ export class MarksComponent implements OnInit {
   orderedMarks1: any[] = [];
   orderedMarks2: any[] = [];
 
-  averagesS1: number[][] = [[]];
-  averagesS2: number[][] = [[]];
+  averagesS1: number[][] = [[0],[0],[0],[0]];
+  averagesS2: number[][] = [[0],[0],[0],[0]];
+
+  //null1: number = 0;
+  //null2: number = 0;
 
   constructor(private auth: AuthenticationService, private router: Router, private m: MarksService) { }
 
@@ -24,12 +27,11 @@ export class MarksComponent implements OnInit {
   getOrderedMarks1() {
     this.m.marksOrder1().subscribe(result => {
       this.orderedMarks1 = result;
-      console.log('\nHere we have our 1st json object--> ')
+      console.log('\nData of the 1st semester--> ')
       console.log( this.orderedMarks1 );
       var avgSub: number = 0;
       var avgSubject: number;
       var sumScales: number;
-      var voidNested: [];
       for (let i in this.orderedMarks1) {
         avgSubject = 0;
         for ( let j in this.orderedMarks1[i].Subjects) { // calculs the average for each Subject
@@ -41,11 +43,11 @@ export class MarksComponent implements OnInit {
             sumScales = sumScales + mark.CoefM
           }
           avgSubject = avgSub * 20 / sumScales;
-          console.log('Average of ' + this.orderedMarks1[i].Subjects[j].NameSubject + ': ' + avgSubject);
-          console.log( 'We wanna put our average in a variable at indexes:' + i + ',' + j )
+          console.log('Average of ' + this.orderedMarks1[i].Subjects[j].NameSubject + ': ' + avgSubject + '\n');
           this.averagesS1[i][j] = (avgSubject.toFixed(2));
         }
       }
+      console.log('Averages of 1st semester:')
       console.log(this.averagesS1);
     })
     return true;
@@ -55,12 +57,11 @@ export class MarksComponent implements OnInit {
   getOrderedMarks2() {
     this.m.marksOrder2().subscribe(result => {
       this.orderedMarks2 = result;
-      console.log('\nHere we have our 2st json object--> ')
+      console.log('\nData of the 2st semester--> ')
       console.log( this.orderedMarks2 );
       var avgSub: number = 0;
       var avgSubject: number;
       var sumScales: number;
-      var voidNested: [];
       for (let i in this.orderedMarks2) {
         avgSubject = 0;
         for ( let j in this.orderedMarks2[i].Subjects) { // calculs the average for each Subject
@@ -72,30 +73,15 @@ export class MarksComponent implements OnInit {
             sumScales = sumScales + mark.CoefM
           }
           avgSubject = avgSub * 20 / sumScales;
-          console.log('Average of ' + this.orderedMarks2[i].Subjects[j].NameSubject + ': ' + avgSubject);
-          console.log( 'We wanna put our average in a variable at indexes:' + i + ',' + j )
+          console.log('Average of ' + this.orderedMarks2[i].Subjects[j].NameSubject + ': ' + avgSubject + '\n');
           this.averagesS2[i][j] = (avgSubject.toFixed(2));
         }
       }
+      console.log('Averages of 2st semester:')
       console.log(this.averagesS2);
     })
     return true;
   }
-
-    /*getGlobalAverageS1() {
-      var sumAvgG: number;
-      var coef: number = 0;
-      const avgsUE: [] = this.getUEAverageS1();
-      for (let avg of avgsUE) {
-        sumAvgG = sumAvgG + avg;
-        coef = coef + 1; //puisque chaque UE vaut 1 de coef
-      }
-      if ( coef != 0 ){
-        return sumAvgG / coef;
-      } else {
-        return 0;
-      }
-    }*/
 
   ngOnInit() {
 

@@ -57,7 +57,7 @@ export class AuthenticationService {
                                     // puis le [1] récup le second string du tableau
       // console.log('payload: ' + payload)
       payload = window.atob(payload); // window.atob decode un string en base64
-      console.log('token décodé (payload): ' + payload);
+      //console.log('token décodé (payload): ' + payload);
 
       return JSON.parse(payload); // JSON.parse transforme du json en objet js
     } else {
@@ -69,7 +69,7 @@ export class AuthenticationService {
     const user = this.getUserDetails();
     if (user) {
       const timeleft = user.exp - (Date.now() / 1000);
-      console.log('Time left before token\'s expiration date: ' + timeleft + ' sec');
+      console.log('Time left: ' + timeleft + ' sec');
       if (timeleft > 0) { // comme Date.now() renvoie des ms, on divise par 1000 pour convertir en secondes
         return true;
       }        // renvoie true si la date d'expiration est postérieur au moment actuel
