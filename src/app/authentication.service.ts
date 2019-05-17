@@ -119,7 +119,7 @@ export class AuthenticationService {
   public profile(): Observable<any> {
     const token = this.getToken();
     return this.http.get('api/profile', {
-      headers: { Authorization: token } // on vérifie l'Authorization en envoyant le token en header de la requete
+      headers: { Authorization: token } // on vérifie l'Authorization en envoyant le token en header de la requete puis on exploite les infos
     });
   }
 

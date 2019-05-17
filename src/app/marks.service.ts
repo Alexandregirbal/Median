@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 export interface NewMark {
@@ -8,11 +9,6 @@ export interface NewMark {
   CoefM: number;
   IdSubject: number;
   EmailUser: string;
-}
-
-export interface UserData {
-  EmailUser: string;
-  Section: string
 }
 
 /*export interface Subject {
@@ -37,8 +33,21 @@ export class MarksService {
     return this.http.get('/api/getsubjects/' + id);
   }
 
-  marksBySubject(data: UserData): Observable<any> {
-    console.log('Waiting for ordered marks...')
-    return(this.http.get('/api/orderedMarks' + data));
+  public marksOrder1(): Observable<any> {
+    const token = localStorage.getItem('userToken');
+    console.log('Waiting for ordered marks of the 1st semester...')
+    const base = this.http.get('/api/orderedMarks1', {
+      headers: { Authorization: token }
+    });
+    return base;
+  }
+
+  public marksOrder2(): Observable<any> {
+    const token = localStorage.getItem('userToken');
+    console.log('Waiting for ordered marks of the 2nd semester...')
+    const base = this.http.get('/api/orderedMarks2', {
+      headers: { Authorization: token }
+    });
+    return base;
   }
 }

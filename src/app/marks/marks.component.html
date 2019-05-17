@@ -1,4 +1,47 @@
-<p>
-  marks works!
-</p>
-<button type="button" name="button" (click)='getOrderedMarks()'>click de test</button>
+<h1>SEMESTRE 1</h1>
+<div class="ue" *ngFor=" let UE of orderedMarks1; let i=index"> <!--This one is well done-->
+  <div class="subject" *ngFor="let subject of UE.Subjects; let j=index">
+    <div>
+      <h2>{{subject?.NameSubject}}</h2>
+    </div>
+    <table>
+      <tr>
+        <th>NOTE</th>
+        <td *ngFor="let mark of subject.Marks">{{mark?.MarkM}}/{{mark?.ScaleM}}</td>
+      </tr>
+      <tr>
+        <th>COEF</th>
+        <td *ngFor="let mark of subject.Marks">{{mark?.CoefM}}</td>
+      </tr>
+      <!---->
+      <tr>
+          <th>MOYENNE</th>
+          <td>{{averagesS1[i][j]}}</td>
+        </tr>
+    </table>
+  </div>
+</div>
+
+<h1>SEMESTRE 2</h1>
+<div class="ue" *ngFor=" let UE of orderedMarks2; let i=index">
+  <div class="subject" *ngFor="let subject of UE.Subjects; let j=index">
+    <div>
+      <h2>{{subject?.NameSubject}}</h2>
+    </div>
+    <table>
+      <tr>
+        <th>NOTE</th>
+        <td *ngFor="let mark of subject.Marks">{{mark?.MarkM}}/{{mark?.ScaleM}}</td>
+      </tr>
+      <tr>
+        <th>COEF</th>
+        <td *ngFor="let mark of subject.Marks">{{mark?.CoefM}}</td>
+      </tr>
+      <!---->
+      <tr>
+          <th>MOYENNE</th>
+          <td>{{averagesS2[i][j]}}</td>
+        </tr>
+    </table>
+  </div>
+</div>

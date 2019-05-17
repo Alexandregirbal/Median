@@ -34,7 +34,7 @@ export class AddmarkComponent implements OnInit {
     this.m.addmark(this.newmark).subscribe(
       () => {
         alert('Vous venez d\'enregistrer une note !');
-        this.router.navigateByUrl('/notes');
+        this.router.navigateByUrl('/marks');
       }
     );
   }
