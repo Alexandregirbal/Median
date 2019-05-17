@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 //        -- SERVICES --
 import { AuthGuardService } from './auth-guard.service';
+import { AdminGuardService } from './admin-guard.service';
 
 //       --COMPONENTS--
 import { CoefficientsComponent } from './coefficients/coefficients.component';
@@ -23,7 +24,7 @@ import { MarksComponent } from './marks/marks.component';
 const routes: Routes = [ // 'Routes' est un type importé du module Router
   {path: '', component: AnonymousComponent},
   {path: 'accueil', component: AccueilComponent, canActivate: [AuthGuardService]},
-  {path: 'coefficients', component: CoefficientsComponent, canActivate: [AuthGuardService]},
+  {path: 'coefficients', component: CoefficientsComponent, canActivate: [AdminGuardService]},
   {path: 'user/change', component: ModifierinfosComponent, canActivate: [AuthGuardService]},
   {path: 'marks', component: MarksComponent, canActivate: [AuthGuardService]},
   {path: 'addmark', component: AddmarkComponent, canActivate: [AuthGuardService]},
@@ -35,6 +36,6 @@ const routes: Routes = [ // 'Routes' est un type importé du module Router
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthGuardService]
+  providers: [AuthGuardService, AdminGuardService]
 })
 export class AppRoutingModule { }

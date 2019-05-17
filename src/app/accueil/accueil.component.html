@@ -1,11 +1,11 @@
-1<div>
+<div>
     <h1>
-      Welcome to Median!
+      Bienvenue sur Median!
     </h1>
 </div>
 
 <div class="home">
-  <p class="semester">Moyennes du semsetre 1:</p>
+  <p class="semester">Moyennes du semestre 1:</p>
   <div class="subject" *ngFor="let ue of orderedMarks1; let i = index">
     <p class="ue"> {{ue.NameUE}}:</p>
     <p class="avgUE">{{avg1[i]}}</p>
@@ -20,7 +20,7 @@
 </div>
 
 <div class="home">
-  <p class="semester">Moyennes du semsetre 2:</p>
+  <p class="semester">Moyennes du semestre 2:</p>
   <div class="subject" *ngFor="let ue of orderedMarks2; let i = index">
     <p class="ue"> {{ue.NameUE}}:</p>
     <p class="avgUE">{{avg2[i]}}</p>

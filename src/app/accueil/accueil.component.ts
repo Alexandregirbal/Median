@@ -15,11 +15,12 @@ export class AccueilComponent implements OnInit {
   orderedMarks1: any[] = [];
   orderedMarks2: any[] = [];
 
-  averagesS1: number[][] = [[0],[0],[0],[0]];
-  averagesS2: number[][] = [[0],[0],[0],[0]];
+  // we can't have more than 6 UEs per smester (update possible: create an interface in an array...)
+  averagesS1: number[][] = [[0],[0],[0],[0],[0],[0]];
+  averagesS2: number[][] = [[0],[0],[0],[0],[0],[0]];
 
-  avg1: number[] = [];
-  avg2: number[] = [];
+  avg1: number[] = [0,0,0,0,0,0];
+  avg2: number[] = [0,0,0,0,0,0];
 
   constructor(private auth: AuthenticationService, private router: Router, private m: MarksService) { }
 
@@ -29,22 +30,35 @@ export class AccueilComponent implements OnInit {
       this.orderedMarks1 = result;
       console.log('\nData of the 1st semester--> ')
       console.log( this.orderedMarks1 );
-      var avgSub: number = 0;
+      var avgSub: number;
       var avgSubject: number;
       var sumScales: number;
+      var coefSub: number;
+      var sumCoefSub: number;
+      var sumSub: number;
       for (let i in this.orderedMarks1) {
         avgSubject = 0;
+        sumCoefSub = 0;
+        sumSub = 0;
         for ( let j in this.orderedMarks1[i].Subjects) { // calculs the average for each Subject
           avgSub = 0;
           sumScales = 0;
+          coefSub = this.orderedMarks1[i].Subjects[j].CoefSubject //for the UE
           for (let mark of this.orderedMarks1[i].Subjects[j].Marks) {
-            console.log('Mark: ' + mark.MarkM + '/' + mark.ScaleM + ' coef ' + mark.CoefM);
+            // console.log('Mark: ' + mark.MarkM + '/' + mark.ScaleM + ' coef ' + mark.CoefM);
             avgSub = avgSub + (mark.MarkM * mark.CoefM / mark.ScaleM);
             sumScales = sumScales + mark.CoefM
           }
           avgSubject = avgSub * 20 / sumScales;
           console.log('Average of ' + this.orderedMarks1[i].Subjects[j].NameSubject + ': ' + avgSubject + '\n');
           this.averagesS1[i][j] = (avgSubject.toFixed(2));
+          sumCoefSub += coefSub;
+          sumSub += coefSub * avgSubject
+        }
+        if (sumCoefSub != 0) {
+          var avgUE = sumSub / sumCoefSub;
+          console.log('avgUE: ' + avgUE);
+          this.avg1[i] = +avgUE.toFixed(2);
         }
       }
       console.log('Averages of 1st semester:')
@@ -59,22 +73,35 @@ export class AccueilComponent implements OnInit {
       this.orderedMarks2 = result;
       console.log('\nData of the 2st semester--> ')
       console.log( this.orderedMarks2 );
-      var avgSub: number = 0;
+      var avgSub: number;
       var avgSubject: number;
       var sumScales: number;
+      var coefSub: number;
+      var sumCoefSub: number;
+      var sumSub: number;
       for (let i in this.orderedMarks2) {
         avgSubject = 0;
+        sumCoefSub = 0;
+        sumSub = 0;
         for ( let j in this.orderedMarks2[i].Subjects) { // calculs the average for each Subject
           avgSub = 0;
           sumScales = 0;
+          coefSub = this.orderedMarks2[i].Subjects[j].CoefSubject //for the UE
           for (let mark of this.orderedMarks2[i].Subjects[j].Marks) {
-            console.log('Mark: ' + mark.MarkM + '/' + mark.ScaleM + ' coef ' + mark.CoefM);
+            // console.log('Mark: ' + mark.MarkM + '/' + mark.ScaleM + ' coef ' + mark.CoefM);
             avgSub = avgSub + (mark.MarkM * mark.CoefM / mark.ScaleM);
             sumScales = sumScales + mark.CoefM
           }
           avgSubject = avgSub * 20 / sumScales;
           console.log('Average of ' + this.orderedMarks2[i].Subjects[j].NameSubject + ': ' + avgSubject + '\n');
           this.averagesS2[i][j] = (avgSubject.toFixed(2));
+          sumCoefSub += coefSub;
+          sumSub += coefSub * avgSubject
+        }
+        if (sumCoefSub != 0) {
+          var avgUE = sumSub / sumCoefSub;
+          console.log('avgUE: ' + avgUE);
+          this.avg2[i] = +avgUE.toFixed(2);
         }
       }
       console.log('Averages of 2st semester:')

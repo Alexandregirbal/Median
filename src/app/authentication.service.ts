@@ -79,6 +79,24 @@ export class AuthenticationService {
     }
   }
 
+  public isAdmin(): boolean {
+    const user = this.getUserDetails();
+    if (user) {
+      const timeleft = user.exp - (Date.now() / 1000);
+      console.log(user.Admin)
+      if (timeleft > 0) { // on verifie le login en premier
+        console.log('admin value: ' + user.Admin)
+        if (user.Admin == true) {
+          console.log('Admin recognize, acces granted');
+          return true;
+        }
+      }
+    } else {
+      console.log('Not logged as Admin');
+      return false;
+    }
+  }
+
   public register(user: TokenPayload): Observable<any> { // TokenPayload est un type d'objet qui est passé au backend
     const base = this.http.post('/api/register', user); // 'http' vient du constructor HttpClient; /user/register est le chemin du
     // tslint:disable-next-line:max-line-length

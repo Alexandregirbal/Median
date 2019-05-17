@@ -13,7 +13,7 @@ export class AuthGuardService implements CanActivate { //CanActivate est une int
     if (!(this.auth.isLoggedIn())) { // si on est pas login on retourne à la racine
       this.router.navigateByUrl('/') // rappel: ceci est la page de connection/inscription
       alert('Connectez-vous pour accéder à cette page.')
-      console.log('/!\\ permission denied /!\\ ')
+      console.log('/!\\ Permission denied /!\\ ')
       return false
     }
     console.log('Acces granted')

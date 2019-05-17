@@ -16,7 +16,8 @@ li {
 
 .semester{
   z-index: 1;
-  background-color: #F3EFE0
+  background-color: #F3EFE0;
+  font-weight: 430;
 }
 .subject{
     border-style: double;
@@ -27,11 +28,14 @@ li {
 .ue{
   background-color: #0051ff75;
   margin-right: -1px;
-  margin-bottom: 6px;
+  margin-bottom: 0px;
+  color: #4b4f5a;
 }
 .avgUE{
   background-color: #0051ff75;
   margin-right: -1px;
+  margin-bottom: 6px;
+  color: #4b4f5a;
 }
 .marks{
   margin-bottom: 3px
