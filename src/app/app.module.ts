@@ -11,6 +11,7 @@ import { UserdataService } from './userdata.service';
 import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
 import { MarksService } from './marks.service';
+import { CoefficientService } from './coefficient.service';
 
 //       --COMPONENTS--
 import { AppRoutingModule } from './app-routing.module';
@@ -61,7 +62,8 @@ import { MarksComponent } from './marks/marks.component';
     UserdataService,
     AuthenticationService,
     AuthGuardService,
-    MarksService
+    MarksService,
+    CoefficientService
   ],
   bootstrap: [AppComponent]
 })

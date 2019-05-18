@@ -40,7 +40,6 @@ export class AddmarkComponent implements OnInit {
   }
 
   getSubjects() {
-    console.log('On veut les subjects dispo pour un user [front]');
     console.log('user:  ' + this.details.EmailUser);
     console.log('section:  ' + this.details.Section);
     console.log('Waiting for subjects....');

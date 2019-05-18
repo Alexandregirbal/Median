@@ -48,4 +48,18 @@ subjects.get('/getsubjects/:id', (req, res) => {
     })
 });
 
+subjects.put('/subject/update', (req,res) => {
+  console.log('On veut mettre à jour un coef.');
+  Id = req.body.IdSubject;
+  newCoef = req.body.Coef;
+  Subject.update(
+    {CoefSubject: newCoef},
+    {where: {IdSubject: Id}}
+  ).then( result => {
+    res.json(result)
+  }).catch( err => {
+    res.send('Error update: ' + err)
+  })
+})
+
 module.exports = subjects;
