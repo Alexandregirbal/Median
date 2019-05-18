@@ -12,6 +12,9 @@ input{
 .note-perso{
   margin: 10px;
 }
+.col-form-label{
+  text-align: right;
+}
 #valider{
   margin: auto;
 }

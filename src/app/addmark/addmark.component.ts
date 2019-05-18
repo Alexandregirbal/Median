@@ -35,6 +35,8 @@ export class AddmarkComponent implements OnInit {
       () => {
         alert('Vous venez d\'enregistrer une note !');
         this.router.navigateByUrl('/marks');
+      },err => {
+        alert('Erreur: vous avez saisi une note au dessus de son barême ou avez oublié de saisir la matière.')
       }
     );
   }

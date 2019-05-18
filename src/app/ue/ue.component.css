@@ -4,6 +4,9 @@ h1,h2{
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.row{
+  margin-right: 0px;
+}
 .ues{
   margin: auto;
 }

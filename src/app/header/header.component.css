@@ -70,7 +70,7 @@
     margin-bottom: 10px;
   }
 
-  .dropdown-perso-content p {
+  .deco {
     font-size: 14px;
     color: red;
     padding: 12px 16px;
@@ -104,6 +104,9 @@
     .dropdown-perso-content li {
       font-size: 18px;
     }
+    .deco{
+      font-size: 20px;
+    }
   }
 
   @media only screen and (min-width: 769px) {
@@ -115,5 +118,8 @@
     }
     .dropdown-perso-content li {
       font-size: 22px;
+    }
+    .deco{
+      font-size: 26px;
     }
   }

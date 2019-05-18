@@ -3,6 +3,7 @@ div{
 }
 h1{
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 li {
   font-size: 18px
@@ -18,12 +19,22 @@ li {
   z-index: 1;
   background-color: #F3EFE0;
   font-weight: 430;
+  font-size: 26px;
+  margin-left: -9px;
+  margin-right: -8px;
+  padding: 8px;
 }
 .subject{
-    border-style: double;
-    border-width: 5px;
-    border-color: #0051ff75;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #777777;
     margin-bottom: 8px;
+}
+.shadow {
+  -moz-box-shadow: 0 0 5px 5px #888;
+  -webkit-box-shadow: 0 0 5px 5px#888;
+  box-shadow: 0 0 5px 5px #888;
+  border-radius: 5px;
 }
 .ue{
   background-color: #0051ff75;
@@ -35,8 +46,8 @@ li {
   background-color: #0051ff75;
   margin-right: -1px;
   margin-bottom: 6px;
-  color: #4b4f5a;
-}
+  color: black;
+  font-weight: 500;}
 .marks{
   margin-bottom: 3px
 }

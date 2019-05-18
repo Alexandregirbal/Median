@@ -48,6 +48,7 @@ button{
 }
 .divcoef{
   text-align: center;
+  margin-bottom: 20px;
 }
 .coef{
   color: black;
@@ -59,6 +60,7 @@ button{
 .row{
   margin-right: 0px;
   text-align: center;
+  margin-bottom: 30px;
 }
 .badge{
   font-size: 18px
@@ -70,6 +72,7 @@ button{
 }
 .custom-select{
   margin-top: 15px;
+  font-size: 20px;
 }
 #valider{
   margin: auto;
