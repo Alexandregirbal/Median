@@ -12,6 +12,9 @@ import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
 import { MarksService } from './marks.service';
 import { CoefficientService } from './coefficient.service';
+import { UeService } from './ue.service';
+import { SubjectService } from './subject.service';
+
 
 //       --COMPONENTS--
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +33,8 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddmarkComponent } from './addmark/addmark.component';
 import { MarksComponent } from './marks/marks.component';
+import { UeComponent } from './ue/ue.component';
+import { SubjectComponent } from './subject/subject.component';
 
 
 @NgModule({
@@ -47,7 +52,9 @@ import { MarksComponent } from './marks/marks.component';
     LoginComponent,
     ProfileComponent,
     AddmarkComponent,
-    MarksComponent
+    MarksComponent,
+    UeComponent,
+    SubjectComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +70,9 @@ import { MarksComponent } from './marks/marks.component';
     AuthenticationService,
     AuthGuardService,
     MarksService,
-    CoefficientService
+    CoefficientService,
+    UeService,
+    SubjectService
   ],
   bootstrap: [AppComponent]
 })

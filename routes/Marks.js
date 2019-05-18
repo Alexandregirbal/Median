@@ -21,7 +21,7 @@ Mark.belongsTo(Subject, {foreignKey: 'IdSubject'})
 
 //GET MARKS of an USER
 marks.get('/allmarks/:id', (req, res) => {
-    console.log(' on est dans allmarks ');
+    console.log('On cherche les marks d\'un user: ');
     console.log(req.params.id);
     Mark.findAll({
         where: {
@@ -31,7 +31,7 @@ marks.get('/allmarks/:id', (req, res) => {
     .then(marks => {
         res.json(marks)
     })
-    .catch(err =>{
+    .catch(err => {
         res.send('error marks: ' + err)
     })
 });
@@ -50,17 +50,10 @@ marks.post('/addmark', (req,res) => {
         res.json(mark)
     })
     .catch(err => {
-        res.send('error marks: ' + err)
+        res.send('Error in marks: ' + err)
     })
 });
 
-/* just to remember:
-UE.hasMany(Subject, {as: 'Subjects', foreignKey: 'IdUE'});
-Subject.belongsTo(UE, {foreignKey: 'IdUE'});
-
-Subject.hasMany(Mark, {as: 'Marks', foreignKey: 'IdSubject'})
-Mark.belongsTo(Subject, {foreignKey: 'IdSubject'})
-*/
 //GET marks in json nested of SEMESTER 1
 marks.get('/orderedMarks1',(req,res) => {
   var userDecoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)

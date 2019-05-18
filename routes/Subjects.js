@@ -24,6 +24,22 @@ Subject.belongsTo(UE, {foreignKey: 'IdUE'});
 /*Subject.hasMany(Mark, {foreignKey: 'IdSubject'})
 Mark.belongsTo(Subject, {foreignKey: 'IdSubject'})*/
 
+subjects.post('/subject/add', (req,res) => {
+  const subjectData = {
+    NameSubject: req.body.NameSubject,
+    CoefSubject: req.body.CoefSubject,
+    IdUE: req.body.IdUE
+  };
+  console.log('\n\nCreate a subject:\n/-name/' + subjectData.NameSubject + '/-coef /' + subjectData.CoefSubject + '/-IdUE /' + subjectData.IdUE + '/-section (not used) /' + req.body.Section );
+    Subject.create(subjectData).then(sub => {
+        res.json(sub)
+    })
+    .catch(err => {
+        res.send('Error in buject: ' + err)
+    })
+})
+
+
 subjects.get('/getsubjects/:id', (req, res) => {
     section = req.params.id;
     console.log('On cherche les matieres en ' + section);

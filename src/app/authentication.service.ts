@@ -83,9 +83,7 @@ export class AuthenticationService {
     const user = this.getUserDetails();
     if (user) {
       const timeleft = user.exp - (Date.now() / 1000);
-      console.log(user.Admin)
       if (timeleft > 0) { // on verifie le login en premier
-        console.log('admin value: ' + user.Admin)
         if (user.Admin == true) {
           console.log('Admin recognize, acces granted');
           return true;

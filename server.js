@@ -12,11 +12,12 @@ app.use(cors());
 var Users = require("./routes/Users");
 var Marks = require("./routes/Marks");
 var Subjects = require("./routes/Subjects");
-
+var UEs = require("./routes/UEs");
 
 app.use("/api", Users);
 app.use("/api", Marks);
 app.use("/api", Subjects);
+app.use("/api", UEs);
 
 app.use(express.static(__dirname + '/dist/median'));
 app.get('/*', (request, response) => response.sendFile(path.join(__dirname + '/dist/median/index.html')));

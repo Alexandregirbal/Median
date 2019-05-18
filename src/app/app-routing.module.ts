@@ -19,18 +19,24 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddmarkComponent } from './addmark/addmark.component';
 import { MarksComponent } from './marks/marks.component';
+import { UeComponent } from './ue/ue.component';
+import { SubjectComponent } from './subject/subject.component';
+
+
 
 //   --ROUTES--
 const routes: Routes = [ // 'Routes' est un type importé du module Router
   {path: '', component: AnonymousComponent},
+  {path: 'register', component: RegisterComponent },
+  {path: 'login', component: LoginComponent},
   {path: 'accueil', component: AccueilComponent, canActivate: [AuthGuardService]},
-  {path: 'coefficients', component: CoefficientsComponent, canActivate: [AdminGuardService]},
   {path: 'user/change', component: ModifierinfosComponent, canActivate: [AuthGuardService]},
   {path: 'marks', component: MarksComponent, canActivate: [AuthGuardService]},
   {path: 'addmark', component: AddmarkComponent, canActivate: [AuthGuardService]},
   {path: 'administrateur', component: AdministrateurComponent, canActivate: [AuthGuardService]},
-  {path: 'register', component: RegisterComponent },
-  {path: 'login', component: LoginComponent},
+  {path: 'coefficients', component: CoefficientsComponent, canActivate: [AdminGuardService]},
+  {path: 'ue', component: UeComponent, canActivate: [AdminGuardService]},
+  {path: 'subject/add', component: SubjectComponent, canActivate: [AdminGuardService]}
 ];
 
 @NgModule({

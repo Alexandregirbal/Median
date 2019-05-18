@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AuthenticationService, UserDetails } from '../authentication.service'
-import { Router } from '@angular/router'
+import { AuthenticationService, UserDetails } from '../authentication.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,6 +13,13 @@ import { Router } from '@angular/router'
 })
 export class HeaderComponent {
   details: UserDetails
+
+  isAdmin() {
+    return this.auth.isAdmin();
+  }
+  log() {
+    return this.auth.isLoggedIn();
+  }
 
   constructor(private auth: AuthenticationService, private router: Router) {}
 

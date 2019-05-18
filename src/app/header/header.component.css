@@ -1,4 +1,3 @@
-
 .navbar-perso {
   overflow: hidden;
   background-color: #333;
@@ -81,6 +80,16 @@
 
   #colornote{
     color: black;
+  }
+  #adminS{
+    text-align: left;
+    color: #0051ffbb;
+    font-weight: 400;
+  }
+  #adminU{
+    text-align: left;
+    color: grey;
+    font-weight: 400;
   }
 
 /*  On ne prend pas en compte les mobiles de largeur inférieur ou égale à 320px (les étudiants n'en possèdent pas en très grande majorité) */

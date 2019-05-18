@@ -1,0 +1,29 @@
+<h1 class="panel-heading">Ajout d'une matière</h1>
+<div class="addsub">
+  <form (submit)='addSubject()'>
+    <div class="form-group row">
+      <label for="NameSubject" class="col-sm-2 col-form-label">Nom de la matière     </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="NameSubject" name="NameSubject" [(ngModel)]="newSub.NameSubject">
+      </div>
+    </div>
+    <div class="divcoef">
+      <label for="CoefSubject">Coefficient</label>
+      <div class="divcoef">
+        <input type="text" class="coef" id="CoefSubject" name="CoefSubject" [(ngModel)]="newSub.CoefSubject">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <select type="ue" class="custom-select" id="ue" name="ue" (change)="getId($event.target.value)">
+          <option disabled >Choisir un UE</option>
+          <option *ngFor='let ue of ues' [value]="ue.IdUE">{{ue.NameUE}}</option>
+        </select>
+      </div>
+    </div>
+    <!--Validation button-->
+    <div id="valider">
+      <button type="submit" class="btn btn-primary">AJOUTER</button>
+    </div>
+  </form>
+</div>

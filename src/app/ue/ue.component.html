@@ -1,0 +1,35 @@
+<h1 class="panel-heading">Ajout d'un UE</h1>
+<div class="addue">
+  <form (submit)='addUE()'>
+    <div class="form-group row">
+      <label for="NameUE" class="col-sm-2 col-form-label">Nom de l'UE</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="NameUE" name="NameUE" [(ngModel)]="newUE.NameUE">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="semestre" class="col-sm-2 col-form-label">Semestre</label>
+      <div class="col-sm-10">
+        <select class="form-control" id="semestre" name="Semestre" [(ngModel)]="newUE.SemesterUE">
+          <option value="1">1er Semestre</option>
+          <option value="2">2ème Semestre</option>
+        </select>
+      </div>
+    </div>
+    <!--Validation button-->
+    <div id="valider">
+      <button type="submit" class="btn btn-primary">AJOUTER</button>
+    </div>
+  </form>
+</div>
+<div class="oldues">
+  <h2 class="panel-heading">UE existants:</h2>
+  <div class="ues">
+    <div class="sem">
+      <li class="list-group-item semester1" *ngFor='let ue of ues1'>{{ue.NameUE}}</li>
+    </div>
+    <div class="sem2">
+      <li class="list-group-item semester2" *ngFor='let ue of ues2'>{{ue.NameUE}}</li>
+    </div>
+  </div>
+</div>

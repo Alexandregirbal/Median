@@ -16,7 +16,6 @@ export class AdminGuardService implements CanActivate {
       this.router.navigateByUrl('/accueil')
       return false
     }
-    console.log('Acces granted to the administrator')
     return true
   }
 

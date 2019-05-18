@@ -1,0 +1,80 @@
+h1{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+div h2{
+  text-align: center;
+  color: #000000ba;
+  background-color: #0051ff75;
+  margin-bottom: 0px;
+  padding: 14px;
+}
+input{
+  width:34px;
+  text-align: center;
+  border: solid #dddddd;
+}
+li{
+  font-size: 20px
+}
+option{
+  font-size: 20px;
+}
+label{
+  font-size: 18px
+}
+select{
+  font-size: 24px;
+}
+select option:first-child{
+  color: grey;
+  font-size: 18px;
+}
+select option {
+  color: #19377e;
+  font-size: 20px;
+}
+button{
+  background-color: #0051ffcc;
+}
+.col-sm-2{
+  font-size: 24px
+}
+.addsub{
+  margin: 8px;
+}
+.divcoef{
+  text-align: center;
+}
+.coef{
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.row{
+  margin-right: 0px;
+  text-align: center;
+}
+.badge{
+  font-size: 18px
+}
+.subjects{
+  margin: auto;
+  margin-top: 20px;
+  font-size: 18px
+}
+.custom-select{
+  margin-top: 15px;
+}
+#valider{
+  margin: auto;
+  text-align: center;
+}
+#NameSubject{
+  width: 100%;
+}

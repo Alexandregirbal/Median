@@ -1,0 +1,36 @@
+h1,h2{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.ues{
+  margin: auto;
+}
+.semester1{
+  background-color: #752e2e58;
+}
+.semester2{
+  background-color: #20612742;
+}
+.sem{
+  margin-top: 10px;
+}
+.sem2{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.addue{
+  margin: 8px;
+}
+button{
+  background-color: #0051ffcc;
+}
+.oldues{
+  margin: 8px;
+  margin-top: 40px;
+}
+#valider{
+  margin: auto;
+  text-align: center;
+}
