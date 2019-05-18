@@ -3,6 +3,10 @@ h1{
   font-size: 22px;
   text-align: center;
 }
+.row{
+  margin-right: 5px;
+  margin-left: 5px;
+}
 
 form{
   margin-left: 6px;
@@ -11,7 +15,11 @@ form{
 #modifier{
   margin: auto;
 }
-
+.title{
+  font-size: 24px;
+  font-weight: 800;
+  margin: 40px;
+}
 @media only screen and (min-width: 600px) {
   h1{
     margin: 17px;

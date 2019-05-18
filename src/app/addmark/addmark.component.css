@@ -15,7 +15,13 @@ input{
 #valider{
   margin: auto;
 }
-
+.row{
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.col-3{
+  margin-top: 5px;
+}
 
 @media only screen and (min-width: 600px) {
   h1{

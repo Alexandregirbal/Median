@@ -1,7 +1,10 @@
 div {
   text-align: center;
 }
-
+.row{
+  margin-right: 0px;
+  margin-left: 0px;
+}
 a{
   font-size: 24px
 }
@@ -24,6 +27,9 @@ form{
     margin: 17px;
     margin-bottom: 25px;
     font-size: 25px;
+  }
+  .row{
+    margin-top: 10px;
   }
 }
 @media only screen and (min-width: 769px) {
