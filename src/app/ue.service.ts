@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 export interface Ue {
   NameUE: string;
   Section: string;
-  SemestreUE: number;
+  SemesterUE: number;
 }
 
 @Injectable({

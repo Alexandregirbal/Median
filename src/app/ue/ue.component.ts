@@ -20,7 +20,7 @@ export class UeComponent implements OnInit {
     newUE: Ue = {
       NameUE: '',
       Section: '',
-      SemestreUE: 0
+      SemesterUE: 0
     };
 
     constructor(private auth: AuthenticationService, private router: Router, private u: UeService) { }
