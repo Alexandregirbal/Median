@@ -21,6 +21,7 @@ import { AddmarkComponent } from './addmark/addmark.component';
 import { MarksComponent } from './marks/marks.component';
 import { UeComponent } from './ue/ue.component';
 import { SubjectComponent } from './subject/subject.component';
+import { DeletesubjectComponent } from './deletesubject/deletesubject.component';
 
 
 
@@ -36,7 +37,9 @@ const routes: Routes = [ // 'Routes' est un type importé du module Router
   {path: 'administrateur', component: AdministrateurComponent, canActivate: [AuthGuardService]},
   {path: 'coefficients', component: CoefficientsComponent, canActivate: [AdminGuardService]},
   {path: 'ue', component: UeComponent, canActivate: [AdminGuardService]},
-  {path: 'subject/add', component: SubjectComponent, canActivate: [AdminGuardService]}
+  {path: 'subject/add', component: SubjectComponent, canActivate: [AdminGuardService]},
+  {path: 'subject/delete', component: DeletesubjectComponent, canActivate: [AdminGuardService]}
+
 ];
 
 @NgModule({

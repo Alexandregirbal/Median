@@ -15,16 +15,16 @@ users.post('/register', (req, res) => {
     const today = new Date();
     const userData = {
         Admin : req.body.Admin,
-        EmailUser : req.body.EmailUser, 
+        EmailUser : req.body.EmailUser,
         NameUser : req.body.NameUser,
         Password : req.body.Password,
         Section : req.body.Section,
         SurnameUser : req.body.SurnameUser,
-        created: today        
+        created: today
     };
 
     User.findOne({
-        where: { 
+        where: {
             EmailUser: req.body.EmailUser
         }
     }).then(user => {
@@ -43,11 +43,11 @@ users.post('/register', (req, res) => {
                     res.json({ token: token})
                 })
                 .catch(err => {
-                    
-                    res.send('[ERROR]: création invalide ' + error)
+
+                    res.send('[ERROR]: création invalide ' + err)
                 })
         } else {
-            res.json({ error: "L'utilisateur existe déjà"})
+            res.send("L'utilisateur existe déjà" + err)
         }
     })
     .catch(err => {
@@ -70,7 +70,7 @@ users.post('/login', (req, res) => {
             });
             res.json({ token: token })
         } else {
-            res.json("L'utilisateur n'existe pas ou le mot de passe est faux")
+            res.send("L'utilisateur n'existe pas ou le mot de passe est faux")
         }
     })
     .catch(err => {
@@ -81,7 +81,7 @@ users.post('/login', (req, res) => {
 //PROFILE
 users.get('/profile', (req, res) => {
     var userDecoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
-                //jwt.verify reconverti à l'objet initial que l'on nomme userDecoded 
+                //jwt.verify reconverti à l'objet initial que l'on nomme userDecoded
     User.findOne({
         where: {
             EmailUser: userDecoded.EmailUser
@@ -95,7 +95,7 @@ users.get('/profile', (req, res) => {
         }
     })
     .catch(err => {
-        res.send('error: ' + err)   
+        res.send('error: ' + err)
     })
 });
 

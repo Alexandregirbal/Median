@@ -8,7 +8,7 @@
                 <li>{{details?.NameUser}}</li> <!--on met l'operateur '?' dit Elvis operator pour éviter une erreur due au temps de recup après l'envoie de la requete http-->
                 <li>{{details?.SurnameUser}}</li>
                 <li>{{details?.Section}}</li>
-                <a routerLink="/user/change">Modifier</a>
+                <!--<a routerLink="/user/change">Modifier</a>-->
                 <p class="deco" (click)="logout()">Déconnexion</p>
             </div>
         </div>
@@ -25,9 +25,9 @@
             <div class="dropdown-perso-content ">
               <a id="adminS" routerLink="/subject/add">Ajouter une matière</a>
               <a id="adminS" routerLink="/coefficients">Modifier une matière</a>
-              <a id="adminS" routerLink="/#">Supprimer une matière</a>
+              <a id="adminS" routerLink="/subject/delete">Supprimer une matière</a>
               <a id="adminU" routerLink="/ue">Ajouter un UE</a>
-              <a id="adminU" routerLink="/#">Supprimer un UE</a>
+              <!--<a id="adminU" routerLink="/#">Supprimer un UE</a>-->
             </div>
         </div>
     </div>

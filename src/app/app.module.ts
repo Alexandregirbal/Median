@@ -35,6 +35,7 @@ import { AddmarkComponent } from './addmark/addmark.component';
 import { MarksComponent } from './marks/marks.component';
 import { UeComponent } from './ue/ue.component';
 import { SubjectComponent } from './subject/subject.component';
+import { DeletesubjectComponent } from './deletesubject/deletesubject.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { SubjectComponent } from './subject/subject.component';
     AddmarkComponent,
     MarksComponent,
     UeComponent,
-    SubjectComponent
+    SubjectComponent,
+    DeletesubjectComponent
   ],
   imports: [
     BrowserModule,

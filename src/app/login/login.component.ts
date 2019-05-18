@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
       },
       err => {
         console.error(err)
+        alert('Mauvais Email ou Mot de passe.')
       }
     )
   }

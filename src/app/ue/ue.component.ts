@@ -40,7 +40,7 @@ export class UeComponent implements OnInit {
       this.newUE.Section = this.section;
       this.u.addUE(this.newUE).subscribe(
         () => {
-          alert("Vous venez d'ajouter un UE dans votre filière.\nSi dans le futur vous souhaitez le supprimer, il faudra préalablement effacer toutes les matières que celui-ci contiendra.")
+          alert("Vous venez d'ajouter un UE dans votre filière. Vous ne pourrez pas le supprimer à moins de contacter un super-administrateur.")
           this.router.navigateByUrl('/subject/add'); // to reload the page
           alert('Remplissez ce nouvel UE des matières qui lui correspondent !')
         }

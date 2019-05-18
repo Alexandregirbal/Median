@@ -20,6 +20,10 @@ export class HeaderComponent {
   log() {
     return this.auth.isLoggedIn();
   }
+  logout(){
+    console.log('On se déconnecte !')
+    this.auth.logout()
+  }
 
   constructor(private auth: AuthenticationService, private router: Router) {}
 
@@ -32,9 +36,5 @@ export class HeaderComponent {
         console.error(err)
       }
     )
-  }
-  logout(){
-    console.log('On se déconnecte !')
-    this.auth.logout()
   }
 }
