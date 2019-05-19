@@ -38,6 +38,15 @@ export class DeletesubjectComponent implements OnInit {
       });
     }
 
+    public confirmation() {
+        if (confirm('ATTENTION !\nCette action effacera toutes les notes concernées.\nVoulez-vous continuer ?')) {
+          del.submit();
+          alert('Vous venez de supprimer une matière.')
+        } else {
+          return false;
+        }
+      }
+
     deleteSubject() {
       console.log('Début de suppression de la matière...');
       //console.log(this.dSubject.IdSubject)

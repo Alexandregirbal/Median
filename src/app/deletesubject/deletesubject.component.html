@@ -1,7 +1,7 @@
 <h1 class="panel-heading">Suppression d'une matière</h1>
 <div class="coeff">
   <!--Les inputs pour les paramètres des notes-->
-  <form (submit)='deleteSubject()'>
+  <form (submit)='deleteSubject()' id="del">
     <div classe="">
       <div class="form-group row">
         <div class="col-sm-10">
@@ -13,11 +13,11 @@
     </div>
     <!--Le bouton de validation-->
     <div id="valider">
-      <button type="submit" class="btn btn-primary">SUPPRIMER</button>
+      <button (click)="confirmation()" type="submit" class="btn btn-primary">SUPPRIMER</button>
     </div>
   </form>
 
   <div class="subjects">
-    <li class="list-group-item" *ngFor='let subject of subjects'>{{subject.NameSubject}}</li>
+    <li class="list-group-item onesub" *ngFor='let subject of subjects'>{{subject.NameSubject}}</li>
   </div>
 </div>
