@@ -13,6 +13,7 @@ var Users = require("./routes/Users");
 var Marks = require("./routes/Marks");
 var Subjects = require("./routes/Subjects");
 var UEs = require("./routes/UEs");
+require('dotenv').config();
 
 app.use("/api", Users);
 app.use("/api", Marks);

@@ -2,7 +2,7 @@ const express = require("express");
 const subjects = express.Router();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
-
+require('dotenv').config();
 
 const User = require("../models/User");
 const Section = require("../models/Section");
@@ -11,8 +11,6 @@ const Mark = require("../models/Mark");
 const Subject = require("../models/Subject");
 
 subjects.use(cors());
-
-process.env.SECRET_KEY = 'secret';
 
 // GET subjects available for an user
 

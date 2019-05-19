@@ -2,6 +2,7 @@ const express = require("express");
 const marks = express.Router();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
 
 var User = require("../models/User");
 var Section = require("../models/Section");
@@ -10,8 +11,6 @@ var Mark = require("../models/Mark");
 var Subject = require("../models/Subject");
 
 marks.use(cors());
-
-process.env.SECRET_KEY = 'secret';
 
 UE.hasMany(Subject, {as: 'Subjects', foreignKey: 'IdUE'});
 Subject.belongsTo(UE, {foreignKey: 'IdUE'});
