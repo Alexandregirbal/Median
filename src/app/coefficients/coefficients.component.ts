@@ -45,6 +45,8 @@ export class CoefficientsComponent implements OnInit {
       this.subjects = data;
       console.log('Voici les subjects disponibles:')
       console.log(this.subjects);
+      this.newCoef.Coef = this.subjects[0].CoefSubject
+      console.log(this.newCoef.Coef)
     });
   }
 

@@ -42,7 +42,7 @@ export class SubjectComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Initialisation of CoefficientsComponent... ');
+    console.log('Initialisation of SubjectComponent... ');
     this.auth.profile().subscribe(
       user => {
         console.log('Welcome ' + user.Section + ' administrator.')

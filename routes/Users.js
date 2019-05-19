@@ -38,7 +38,7 @@ users.post('/register', (req, res) => {
             User.create(userData) // .create() crée les données en question ( voir doc sequelize )
                 .then(user => {
                     let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
-                        expiresIn: 12000
+                        expiresIn: 604800 // a week
                     });
                     res.json({ token: token})
                 })
@@ -66,7 +66,7 @@ users.post('/login', (req, res) => {
     .then(user => {
         if (bcrypt.compareSync(req.body.Password, user.Password)) {
             let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
-                expiresIn: 12000
+                expiresIn: 604800 // a week
             });
             res.json({ token: token })
         } else {

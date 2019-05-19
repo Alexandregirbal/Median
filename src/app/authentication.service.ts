@@ -68,8 +68,9 @@ export class AuthenticationService {
   public isLoggedIn(): boolean {
     const user = this.getUserDetails();
     if (user) {
-      const timeleft = user.exp - (Date.now() / 1000);
-      console.log('Time left: ' + timeleft + ' sec');
+      const timeleft = (user.exp - (Date.now() / 1000));
+      const days = (timeleft/86400).toFixed(2);
+      console.log('Time left: ' + timeleft.toFixed(2) + ' sec. C\'est à dire ' + (days) + ' jours.');
       if (timeleft > 0) { // comme Date.now() renvoie des ms, on divise par 1000 pour convertir en secondes
         return true;
       }        // renvoie true si la date d'expiration est postérieur au moment actuel

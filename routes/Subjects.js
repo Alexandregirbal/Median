@@ -1,6 +1,7 @@
 const express = require("express");
 const subjects = express.Router();
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
 
 
 const User = require("../models/User");
@@ -66,16 +67,36 @@ subjects.get('/getsubjects/:id', (req, res) => {
 
 subjects.put('/subject/update', (req,res) => {
   console.log('On veut mettre à jour un coef.');
-  Id = req.body.IdSubject;
+  id = req.body.IdSubject;
   newCoef = req.body.Coef;
   Subject.update(
     {CoefSubject: newCoef},
-    {where: {IdSubject: Id}}
-  ).then( result => {
+    {where: {IdSubject: id}}
+  )
+  .then( result => {
     res.json(result)
-  }).catch( err => {
+  })
+  .catch( err => {
     res.send('Error update: ' + err)
   })
+})
+
+subjects.delete('/subject/delete/:id', (req,res) => {
+  console.log('On va supprimer un subject et ses notes(fait dans la database avec un trigger)')
+  var userDecoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+  const admin = userDecoded.Admin;
+  const id = req.params.id
+  if (admin) {
+    Subject.destroy(
+      {where: {IdSubject: id}}
+    )
+    .then( result => {
+      res.json(result)
+    })
+    .catch( err => {
+      res.send('Error delete: ' + err)
+    })
+  }
 })
 
 module.exports = subjects;
