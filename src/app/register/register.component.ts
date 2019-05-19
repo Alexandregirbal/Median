@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigateByUrl('/accueil')
       },
       err => {
-        alert('Ce compte existe déjà.')
+        alert('Désolé, il y a eu un problème lors de la création de votre compte.')
         console.error(err)
       }
     )
