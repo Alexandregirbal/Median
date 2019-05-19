@@ -36,6 +36,8 @@ import { MarksComponent } from './marks/marks.component';
 import { UeComponent } from './ue/ue.component';
 import { SubjectComponent } from './subject/subject.component';
 import { DeletesubjectComponent } from './deletesubject/deletesubject.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -64,7 +66,8 @@ import { DeletesubjectComponent } from './deletesubject/deletesubject.component'
     BrowserAnimationsModule,
     FormsModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     NotesServiceService,
