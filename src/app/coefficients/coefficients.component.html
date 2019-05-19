@@ -7,6 +7,7 @@
         <div class="form-group row">
           <div class="col-sm-10">
             <select type="number" class="custom-select" id="subject" name="IdSubject" (change)="getCoef($event.target.value)">
+              <option disabled>Selectionner une matière</option>
               <option *ngFor='let subject of subjects' [value]="subject.IdSubject">{{subject.NameSubject}}</option>
             </select>
           </div>

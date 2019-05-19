@@ -33,7 +33,7 @@ export class AddmarkComponent implements OnInit {
     this.newmark.IdSubject = +(this.newmark.IdSubject); // converts to number
     this.m.addmark(this.newmark).subscribe(
       () => {
-        alert('Vous venez d\'enregistrer une note !');
+        console.log('Vous venez d\'enregistrer une note !');
         this.router.navigateByUrl('/marks');
       },err => {
         alert('Erreur: vous avez saisi une note au dessus de son barême ou avez oublié de saisir la matière.')
