@@ -57,8 +57,8 @@ export class MarksComponent implements OnInit {
   getOrderedMarks2() {
     this.m.marksOrder2().subscribe(result => {
       this.orderedMarks2 = result;
-      console.log('\nData of the 2st semester--> ')
-      console.log( this.orderedMarks2 );
+      //console.log('\nData of the 2st semester--> ')
+      //console.log( this.orderedMarks2 );
       var avgSub: number = 0;
       var avgSubject: number;
       var sumScales: number;
@@ -68,17 +68,17 @@ export class MarksComponent implements OnInit {
           avgSub = 0;
           sumScales = 0;
           for (let mark of this.orderedMarks2[i].Subjects[j].Marks) {
-            console.log('Mark: ' + mark.MarkM + '/' + mark.ScaleM + ' coef ' + mark.CoefM);
+            //console.log('Mark: ' + mark.MarkM + '/' + mark.ScaleM + ' coef ' + mark.CoefM);
             avgSub = avgSub + (mark.MarkM * mark.CoefM / mark.ScaleM);
             sumScales = sumScales + mark.CoefM
           }
           avgSubject = avgSub * 20 / sumScales;
-          console.log('Average of ' + this.orderedMarks2[i].Subjects[j].NameSubject + ': ' + avgSubject + '\n');
+          //console.log('Average of ' + this.orderedMarks2[i].Subjects[j].NameSubject + ': ' + avgSubject + '\n');
           this.averagesS2[i][j] = (avgSubject.toFixed(2));
         }
       }
-      console.log('Averages of 2st semester:')
-      console.log(this.averagesS2);
+      //console.log('Averages of 2st semester:')
+      //console.log(this.averagesS2);
     })
     return true;
   }
@@ -97,7 +97,7 @@ export class MarksComponent implements OnInit {
     this.getOrderedMarks2();
     // this.generateAveragesS1();
     // this.generateAveragesS2();
-    console.log('Initialisation MarksComponent done');
+    //console.log('Initialisation MarksComponent done');
   }
 
 }

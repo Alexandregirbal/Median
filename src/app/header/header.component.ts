@@ -33,7 +33,7 @@ export class HeaderComponent {
         this.details = user
       },
       err => {
-        console.error(err)
+        console.log('You should be connected if you wanna continue on Median !')
       }
     )
   }

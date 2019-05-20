@@ -52,7 +52,7 @@ export class UeComponent implements OnInit {
       this.auth.profile().subscribe(
         user => {
           this.section = user.Section;
-          console.log('Welcome ' + this.section + ' administrator.')
+          //console.log('Welcome ' + this.section + ' administrator.')
           this.u.getUEs(this.section).subscribe(
             ue => {
               this.ues = ue;
