@@ -1,11 +1,11 @@
 {
-  "name": "median",
-  "short_name": "median",
+  "name": "Median",
+  "short_name": "Median",
   "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "background_color": "#1976d2",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/accueil",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
