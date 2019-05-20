@@ -27,8 +27,8 @@ export class AddmarkComponent implements OnInit {
   constructor(private auth: AuthenticationService, private router: Router, private m: MarksService) { }
 
   addmark() {
-    console.log('Ajout d\'une note [front]');
-    console.log('user:  ' + this.details.EmailUser);
+    //console.log('Ajout d\'une note [front]');
+    //console.log('user:  ' + this.details.EmailUser);
     this.newmark.EmailUser = this.details.EmailUser;
     this.newmark.IdSubject = +(this.newmark.IdSubject); // converts to number
     this.m.addmark(this.newmark).subscribe(
@@ -42,24 +42,24 @@ export class AddmarkComponent implements OnInit {
   }
 
   getSubjects() {
-    console.log('user:  ' + this.details.EmailUser);
-    console.log('section:  ' + this.details.Section);
-    console.log('Waiting for subjects....');
+    //console.log('user:  ' + this.details.EmailUser);
+    //console.log('section:  ' + this.details.Section);
+    //console.log('Waiting for subjects....');
     this.m.getSubjects(this.details.Section).subscribe(data => {
       this.subjects = data;
-      console.log(this.subjects);
+      //console.log(this.subjects);
     });
   }
 
   ngOnInit() {
-    console.log('Initialisation AddmarkComponent');
+    //console.log('Initialisation AddmarkComponent');
     this.auth.profile().subscribe(
       user => {
         this.details = user;
-        console.log('On cherche les subjects dispo pour les ' + this.details.Section);
+        //console.log('On cherche les subjects dispo pour les ' + this.details.Section);
         this.m.getSubjects(this.details.Section).subscribe(data => {
           this.subjects = data;
-          console.log(this.subjects);
+          //console.log(this.subjects);
         });
       },
       err => {

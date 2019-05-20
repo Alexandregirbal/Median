@@ -23,15 +23,13 @@ export class SubjectService {
   constructor(private http: HttpClient) { }
 
   public addSubject(sub: Sub): Observable<any> {
-    console.log('On lance l\'addition du subject !');
-    console.log(sub);
+    //console.log('On lance l\'addition du subject !');
     return this.http.post('/api/subject/add', sub);
   }
 
   public deleteSubject(idSub: number): Observable<any> {
     const token = localStorage.getItem('userToken');
-    console.log('On lance la SUPPRESSION du subject !');
-    console.log(idSub);
+    //console.log('On lance la SUPPRESSION du subject !');
     return this.http.delete('/api/subject/delete/' + idSub ,{
       headers: { Authorization: token }
     });

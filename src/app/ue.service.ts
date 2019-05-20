@@ -17,7 +17,6 @@ export class UeService {
   constructor(private http: HttpClient, private router: Router) { }
 
   public getUEs(id: string): Observable<any> {
-    console.log('try to get ues')
     return this.http.get('api/ue/get/' + id);
   }
 

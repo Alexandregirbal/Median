@@ -36,19 +36,19 @@ export class UeComponent implements OnInit {
     }
 
     addUE(){
-      console.log('Chargement de la mise à jour du coefficient...');
+      //console.log('Chargement de la mise à jour du coefficient...');
       this.newUE.Section = this.section;
       this.u.addUE(this.newUE).subscribe(
         () => {
           alert("Vous venez d'ajouter un UE dans votre filière. Vous ne pourrez pas le supprimer à moins de contacter un super-administrateur.")
-          this.router.navigateByUrl('/subject/add'); // to reload the page
+          this.router.navigateByUrl('/subject/add'); // to reload the page --> didn't work as expected
           alert('Remplissez ce nouvel UE des matières qui lui correspondent !')
         }
       );
     }
 
     ngOnInit() {
-      console.log('Initialisation of CoefficientsComponent... ');
+      //console.log('Initialisation of CoefficientsComponent... ');
       this.auth.profile().subscribe(
         user => {
           this.section = user.Section;
@@ -56,8 +56,7 @@ export class UeComponent implements OnInit {
           this.u.getUEs(this.section).subscribe(
             ue => {
               this.ues = ue;
-              console.log('Les UEs suivants sont déjà dispo: ');
-              console.log(this.ues);
+              //console.log('Les UEs suivants sont déjà dispo: ');
               this.splitUEs(this.ues);
             }
           )

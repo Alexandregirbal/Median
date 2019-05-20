@@ -29,11 +29,11 @@ export class DeletesubjectComponent implements OnInit {
     }
 
     getSubjects() {
-      console.log('Section:  ' + this.dSubject.Section);
+      //console.log('Section:  ' + this.dSubject.Section);
       this.m.getSubjects(this.dSubject.Section).subscribe(data => {
         this.subjects = data;
-        console.log('Voici les subjects disponibles:')
-        console.log(this.subjects);
+        //console.log('Voici les subjects disponibles:')
+        //console.log(this.subjects);
         this.dSubject.IdSubject = this.subjects[0].IdSubject
       });
     }
@@ -47,7 +47,7 @@ export class DeletesubjectComponent implements OnInit {
       }
 
     deleteSubject() {
-      console.log('Début de suppression de la matière...');
+      console.log('Attention, suppression de la matière...');
       //console.log(this.dSubject.IdSubject)
       this.sub.deleteSubject(this.dSubject.IdSubject).subscribe(
         () => {
@@ -57,7 +57,7 @@ export class DeletesubjectComponent implements OnInit {
     }
 
     ngOnInit() {
-      console.log('Initialisation of CoefficientsComponent... ');
+      //console.log('Initialisation of CoefficientsComponent... ');
       this.auth.profile().subscribe(
         user => {
           this.dSubject.Section = user.Section;

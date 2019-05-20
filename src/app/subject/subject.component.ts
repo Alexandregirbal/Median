@@ -25,7 +25,7 @@ export class SubjectComponent implements OnInit {
   constructor(private auth: AuthenticationService, private router: Router, private u: UeService, private sub: SubjectService) { }
 
   addSubject(){
-    console.log('Ajout d\'un subject en cours');
+    //console.log('Ajout d\'un subject en cours');
     this.sub.addSubject(this.newSub).subscribe(
       () => {
         alert("Vous venez d'ajouter une matière dans votre filière.")
@@ -42,10 +42,10 @@ export class SubjectComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Initialisation of SubjectComponent... ');
+    //console.log('Initialisation of SubjectComponent... ');
     this.auth.profile().subscribe(
       user => {
-        console.log('Welcome ' + user.Section + ' administrator.')
+        //console.log('Welcome ' + user.Section + ' administrator.')
         this.newSub.Section = user.Section
         this.u.getUEs(user.Section).subscribe(
           ue => {

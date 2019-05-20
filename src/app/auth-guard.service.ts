@@ -16,7 +16,7 @@ export class AuthGuardService implements CanActivate { //CanActivate est une int
       console.log('/!\\ Permission denied /!\\ ')
       return false
     }
-    console.log('Acces granted')
+    //console.log('Acces granted')
     return true //sinon on renvoie true car login
   }
 

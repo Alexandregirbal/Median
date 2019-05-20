@@ -6,8 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 
 //        -- SERVICES --
-import { NotesServiceService } from './notes-service.service';
-import { UserdataService } from './userdata.service';
 import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
 import { MarksService } from './marks.service';
@@ -22,11 +20,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { CoefficientsComponent } from './coefficients/coefficients.component';
-import { ModifierinfosComponent } from './modifierinfos/modifierinfos.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { NotesComponent } from './notes/notes.component';
-import { NotesAjoutComponent } from './notes-ajout/notes-ajout.component';
-import { AdministrateurComponent } from './administrateur/administrateur.component';
 import { RegisterComponent } from './register/register.component';
 import { AnonymousComponent } from './anonymous/anonymous.component';
 import { LoginComponent } from './login/login.component';
@@ -36,8 +30,8 @@ import { MarksComponent } from './marks/marks.component';
 import { UeComponent } from './ue/ue.component';
 import { SubjectComponent } from './subject/subject.component';
 import { DeletesubjectComponent } from './deletesubject/deletesubject.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+//import { ServiceWorkerModule } from '@angular/service-worker';
+//import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -45,11 +39,7 @@ import { environment } from '../environments/environment';
     AppComponent,
     HeaderComponent,
     CoefficientsComponent,
-    ModifierinfosComponent,
     AccueilComponent,
-    NotesComponent,
-    NotesAjoutComponent,
-    AdministrateurComponent,
     RegisterComponent,
     AnonymousComponent,
     LoginComponent,
@@ -66,12 +56,10 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     FormsModule,
     LayoutModule,
-    HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    HttpClientModule
+    //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
-    NotesServiceService,
-    UserdataService,
     AuthenticationService,
     AuthGuardService,
     MarksService,

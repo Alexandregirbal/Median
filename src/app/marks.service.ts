@@ -29,13 +29,13 @@ export class MarksService {
   }
 
   public getSubjects(id) {
-    console.log('Waiting for subjects....');
+    //console.log('Waiting for subjects....');
     return this.http.get('/api/getsubjects/' + id);
   }
 
   public marksOrder1(): Observable<any> {
     const token = localStorage.getItem('userToken');
-    console.log('Waiting for ordered marks of the 1st semester...')
+    //console.log('Waiting for ordered marks of the 1st semester...')
     const base = this.http.get('/api/orderedMarks1', {
       headers: { Authorization: token }
     });
@@ -44,7 +44,7 @@ export class MarksService {
 
   public marksOrder2(): Observable<any> {
     const token = localStorage.getItem('userToken');
-    console.log('Waiting for ordered marks of the 2nd semester...')
+    //console.log('Waiting for ordered marks of the 2nd semester...')
     const base = this.http.get('/api/orderedMarks2', {
       headers: { Authorization: token }
     });

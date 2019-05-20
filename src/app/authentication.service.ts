@@ -70,12 +70,12 @@ export class AuthenticationService {
     if (user) {
       const timeleft = (user.exp - (Date.now() / 1000));
       const days = (timeleft/86400).toFixed(2);
-      console.log('Time left: ' + timeleft.toFixed(2) + ' sec. C\'est à dire ' + (days) + ' jours.');
+      //console.log('Time left: ' + timeleft.toFixed(2) + ' sec. C\'est à dire ' + (days) + ' jours.');
       if (timeleft > 0) { // comme Date.now() renvoie des ms, on divise par 1000 pour convertir en secondes
         return true;
       }        // renvoie true si la date d'expiration est postérieur au moment actuel
     } else {
-      console.log('Not logged');
+      //console.log('Not logged');
       return false;
     }
   }
@@ -86,12 +86,12 @@ export class AuthenticationService {
       const timeleft = user.exp - (Date.now() / 1000);
       if (timeleft > 0) { // on verifie le login en premier
         if (user.Admin == true) {
-          console.log('Admin recognize, acces granted');
+          //console.log('Admin recognize, acces granted');
           return true;
         }
       }
     } else {
-      console.log('Not logged as Admin');
+      //console.log('Not logged as Admin');
       return false;
     }
   }

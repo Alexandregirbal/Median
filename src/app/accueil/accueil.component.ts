@@ -28,8 +28,8 @@ export class AccueilComponent implements OnInit {
   getOrderedMarks1() {
     this.m.marksOrder1().subscribe(result => {
       this.orderedMarks1 = result;
-      console.log('\nData of the 1st semester--> ')
-      console.log( this.orderedMarks1 );
+      //console.log('\nData of the 1st semester--> ')
+      //console.log( this.orderedMarks1 );
       var avgSub: number;
       var avgSubject: number;
       var sumScales: number;
@@ -50,19 +50,19 @@ export class AccueilComponent implements OnInit {
             sumScales = sumScales + mark.CoefM
           }
           avgSubject = avgSub * 20 / sumScales;
-          console.log('Average of ' + this.orderedMarks1[i].Subjects[j].NameSubject + ': ' + avgSubject + '\n');
+          //console.log('Average of ' + this.orderedMarks1[i].Subjects[j].NameSubject + ': ' + avgSubject + '\n');
           this.averagesS1[i][j] = (avgSubject.toFixed(2));
           sumCoefSub += coefSub;
           sumSub += coefSub * avgSubject
         }
         if (sumCoefSub != 0) {
           var avgUE = sumSub / sumCoefSub;
-          console.log('avgUE: ' + avgUE);
+          //console.log('avgUE: ' + avgUE);
           this.avg1[i] = +avgUE.toFixed(2);
         }
       }
-      console.log('Averages of 1st semester:')
-      console.log(this.averagesS1);
+      //console.log('Averages of 1st semester:')
+      //console.log(this.averagesS1);
     })
     return true;
   }
@@ -71,8 +71,8 @@ export class AccueilComponent implements OnInit {
   getOrderedMarks2() {
     this.m.marksOrder2().subscribe(result => {
       this.orderedMarks2 = result;
-      console.log('\nData of the 2st semester--> ')
-      console.log( this.orderedMarks2 );
+      //console.log('\nData of the 2st semester--> ')
+      //console.log( this.orderedMarks2 );
       var avgSub: number;
       var avgSubject: number;
       var sumScales: number;
@@ -93,19 +93,19 @@ export class AccueilComponent implements OnInit {
             sumScales = sumScales + mark.CoefM
           }
           avgSubject = avgSub * 20 / sumScales;
-          console.log('Average of ' + this.orderedMarks2[i].Subjects[j].NameSubject + ': ' + avgSubject + '\n');
+          //console.log('Average of ' + this.orderedMarks2[i].Subjects[j].NameSubject + ': ' + avgSubject + '\n');
           this.averagesS2[i][j] = (avgSubject.toFixed(2));
           sumCoefSub += coefSub;
           sumSub += coefSub * avgSubject
         }
         if (sumCoefSub != 0) {
           var avgUE = sumSub / sumCoefSub;
-          console.log('avgUE: ' + avgUE);
+          //console.log('avgUE: ' + avgUE);
           this.avg2[i] = +avgUE.toFixed(2);
         }
       }
-      console.log('Averages of 2st semester:')
-      console.log(this.averagesS2);
+      //console.log('Averages of 2st semester:')
+      //console.log(this.averagesS2);
     })
     return true;
   }

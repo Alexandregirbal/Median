@@ -40,18 +40,18 @@ export class CoefficientsComponent implements OnInit {
   }
 
   getSubjects() {
-    console.log('Section:  ' + this.newCoef.Section);
+    //console.log('Section:  ' + this.newCoef.Section);
     this.m.getSubjects(this.newCoef.Section).subscribe(data => {
       this.subjects = data;
-      console.log('Voici les subjects disponibles:')
-      console.log(this.subjects);
+      //console.log('Voici les subjects disponibles:')
+      //console.log(this.subjects);
       this.newCoef.Coef = this.subjects[0].CoefSubject
-      console.log(this.newCoef.Coef)
+      //console.log(this.newCoef.Coef)
     });
   }
 
   putNewCoef() {
-    console.log('Chargement de la mise à jour du coefficient...');
+    //console.log('Chargement de la mise à jour du coefficient...');
     this.co.putCoefSubject(this.newCoef).subscribe(
       () => {
         this.router.navigateByUrl('/accueil');
@@ -60,7 +60,7 @@ export class CoefficientsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Initialisation of CoefficientsComponent... ');
+    //console.log('Initialisation of CoefficientsComponent... ');
     this.auth.profile().subscribe(
       user => {
         this.newCoef.Section = user.Section;

@@ -21,7 +21,7 @@ export class HeaderComponent {
     return this.auth.isLoggedIn();
   }
   logout(){
-    console.log('On se déconnecte !')
+    //console.log('On se déconnecte !')
     this.auth.logout()
   }
 

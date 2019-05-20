@@ -18,10 +18,10 @@ export class ProfileComponent {
 
     getMarks() {
       this.auth.profile().subscribe(user => {
-        console.log(user.EmailUser);
+        //console.log(user.EmailUser);
         this.ma.getMarks(user.EmailUser).subscribe(data => {
           this.marks = data;
-          console.log(this.marks);
+          //console.log(this.marks);
         });
       }
       );
