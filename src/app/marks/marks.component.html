@@ -8,7 +8,7 @@
       <table>
         <tr>
           <th>NOTE</th>
-          <td *ngFor="let mark of subject.Marks">{{mark?.MarkM}}/{{mark?.ScaleM}}</td>
+          <td *ngFor="let mark of subject.Marks" (click)='deleteMark(mark.IdMark)'>{{mark?.MarkM}}/{{mark?.ScaleM}}</td>
         </tr>
         <tr>
           <th>COEF</th>

@@ -48,7 +48,7 @@ import { DeletesubjectComponent } from './deletesubject/deletesubject.component'
     MarksComponent,
     UeComponent,
     SubjectComponent,
-    DeletesubjectComponent
+    DeletesubjectComponent,
   ],
   imports: [
     BrowserModule,

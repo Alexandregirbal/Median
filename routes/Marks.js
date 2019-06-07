@@ -53,6 +53,21 @@ marks.post('/addmark', (req,res) => {
     })
 });
 
+marks.delete('/mark/delete/:id', (req,res) => {
+  console.log('A mark will be deleted...\n  ')
+  //var userDecoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+  const id = req.params.id
+  Mark.destroy(
+    {where: {IdMark: id}}
+  )
+  .then( result => {
+    res.json(result)
+  })
+  .catch( err => {
+    res.send('Error delete mark: ' + err)
+  })
+})
+
 //GET marks in json nested of SEMESTER 1
 marks.get('/orderedMarks1',(req,res) => {
   var userDecoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)

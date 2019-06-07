@@ -24,6 +24,14 @@ export class MarksService {
     return this.http.post('/api/addmark', mark);
   }
 
+  public deleteMark(id: number): Observable<any> {
+    const token = localStorage.getItem('userToken');
+    console.log('try to delete with api\n')
+    return this.http.delete('/api/mark/delete/' + id ,{
+      headers: { Authorization: token }
+    });
+  }
+
   getMarks(id): Observable<any> {
     return(this.http.get('/api/allmarks/' + id));
   }

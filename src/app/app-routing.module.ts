@@ -19,8 +19,6 @@ import { UeComponent } from './ue/ue.component';
 import { SubjectComponent } from './subject/subject.component';
 import { DeletesubjectComponent } from './deletesubject/deletesubject.component';
 
-
-
 //   --ROUTES--
 const routes: Routes = [ // 'Routes' est un type importé du module Router
   {path: '', component: AnonymousComponent},
@@ -33,7 +31,6 @@ const routes: Routes = [ // 'Routes' est un type importé du module Router
   {path: 'ue', component: UeComponent, canActivate: [AdminGuardService]},
   {path: 'subject/add', component: SubjectComponent, canActivate: [AdminGuardService]},
   {path: 'subject/delete', component: DeletesubjectComponent, canActivate: [AdminGuardService]}
-
 ];
 
 @NgModule({

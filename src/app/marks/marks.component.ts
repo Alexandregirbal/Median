@@ -83,6 +83,16 @@ export class MarksComponent implements OnInit {
     return true;
   }
 
+  deleteMark(id) {
+    if (confirm('Voulez vous vraiment supprimer cette note ?')) {
+      console.log('On lance la requete...' + id);
+      this.m.deleteMark(id).subscribe( () => {
+        this.getOrderedMarks1();
+        this.getOrderedMarks2();
+      });
+    }
+  }
+
   ngOnInit() {
 
     this.auth.profile().subscribe(
